@@ -1,0 +1,52 @@
+﻿<Window x:Class="TaskWithButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal"  DockPanel.Dock="Top" Height="160">
+
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Rectangle}" x:Key = "RectangleStyle1">
+                    <Setter Property="Margin" Value="10"></Setter>
+                    <Setter Property="Width" Value="50"></Setter>
+                    <Setter Property="Height" Value="50"></Setter>
+                    <Setter Property="Fill" Value="Gold"></Setter>
+                    <Setter Property="RadiusX" Value="10"></Setter>
+                    <Setter Property="RadiusY" Value="10"></Setter>
+                    <Setter Property="Stroke" Value="Red"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Width" Value="100"></Setter>
+                            <Setter Property="Height" Value="100"></Setter>
+                            <Setter Property="Fill" Value="Linen"></Setter>
+                            <Setter Property="RadiusX" Value="20"></Setter>
+                            <Setter Property="RadiusY" Value="20"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <Style TargetType="{x:Type Rectangle}">
+
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Blue" Offset="1"/>
+                    <GradientStop Color="#FFE40B0B"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Rectangle Style="{StaticResource RectangleStyle1}"></Rectangle>
+            <Rectangle Style="{StaticResource RectangleStyle1}"></Rectangle>
+            <Rectangle Style="{StaticResource RectangleStyle1}"></Rectangle>
+            <Rectangle Style="{StaticResource RectangleStyle1}">
+                <Rectangle.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Blue" Offset="0" />
+                        <GradientStop Color="White" Offset="1" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </StackPanel>
+        <Grid></Grid>
+    </DockPanel>
+
+</Window>
