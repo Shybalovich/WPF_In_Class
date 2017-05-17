@@ -1,0 +1,13 @@
+D:\Shybalovich\WPF\15-05-17_tmp\bin\Debug\15-05-17_tmp.exe.config
+D:\Shybalovich\WPF\15-05-17_tmp\bin\Debug\15-05-17_tmp.exe
+D:\Shybalovich\WPF\15-05-17_tmp\bin\Debug\15-05-17_tmp.pdb
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\15-05-17_tmp.csprojResolveAssemblyReference.cache
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\MainWindow.baml
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\MainWindow.g.cs
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\App.g.cs
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\15-05-17_tmp_MarkupCompile.cache
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\15-05-17_tmp.g.resources
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\_15_05_17_tmp.Properties.Resources.resources
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\15-05-17_tmp.csproj.GenerateResource.Cache
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\15-05-17_tmp.exe
+D:\Shybalovich\WPF\15-05-17_tmp\obj\Debug\15-05-17_tmp.pdb

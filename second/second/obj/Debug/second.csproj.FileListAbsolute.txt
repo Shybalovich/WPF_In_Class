@@ -1,0 +1,16 @@
+U:\Belov\WPF\second\second\bin\Debug\second.exe.config
+U:\Belov\WPF\second\second\bin\Debug\second.exe
+U:\Belov\WPF\second\second\bin\Debug\second.pdb
+U:\Belov\WPF\second\second\obj\Debug\MainWindow.baml
+U:\Belov\WPF\second\second\obj\Debug\MainWindow.g.cs
+U:\Belov\WPF\second\second\obj\Debug\App.g.cs
+U:\Belov\WPF\second\second\obj\Debug\second_MarkupCompile.cache
+U:\Belov\WPF\second\second\obj\Debug\second.g.resources
+U:\Belov\WPF\second\second\obj\Debug\second.Properties.Resources.resources
+U:\Belov\WPF\second\second\obj\Debug\second.csproj.GenerateResource.Cache
+U:\Belov\WPF\second\second\obj\Debug\second.exe
+U:\Belov\WPF\second\second\obj\Debug\second.pdb
+U:\Belov\WPF\second\second\obj\Debug\second.csprojResolveAssemblyReference.cache
+D:\Shybalovich\WPF\second\second\bin\Debug\second.exe.config
+D:\Shybalovich\WPF\second\second\obj\Debug\second.exe
+D:\Shybalovich\WPF\second\second\obj\Debug\second.pdb

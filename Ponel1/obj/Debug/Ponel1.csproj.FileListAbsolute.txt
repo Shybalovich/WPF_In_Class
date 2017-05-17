@@ -1,0 +1,13 @@
+D:\Shybalovich\WPF\Ponel1\bin\Debug\Ponel1.exe.config
+D:\Shybalovich\WPF\Ponel1\bin\Debug\Ponel1.exe
+D:\Shybalovich\WPF\Ponel1\bin\Debug\Ponel1.pdb
+D:\Shybalovich\WPF\Ponel1\obj\Debug\Ponel1.csprojResolveAssemblyReference.cache
+D:\Shybalovich\WPF\Ponel1\obj\Debug\MainWindow.baml
+D:\Shybalovich\WPF\Ponel1\obj\Debug\MainWindow.g.cs
+D:\Shybalovich\WPF\Ponel1\obj\Debug\App.g.cs
+D:\Shybalovich\WPF\Ponel1\obj\Debug\Ponel1_MarkupCompile.cache
+D:\Shybalovich\WPF\Ponel1\obj\Debug\Ponel1.g.resources
+D:\Shybalovich\WPF\Ponel1\obj\Debug\Ponel1.Properties.Resources.resources
+D:\Shybalovich\WPF\Ponel1\obj\Debug\Ponel1.csproj.GenerateResource.Cache
+D:\Shybalovich\WPF\Ponel1\obj\Debug\Ponel1.exe
+D:\Shybalovich\WPF\Ponel1\obj\Debug\Ponel1.pdb
