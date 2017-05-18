@@ -20,9 +20,27 @@ namespace TaskWithButton
     /// </summary>
     public partial class MainWindow : Window
     {
+        public LinearGradientBrush lgb;
         public MainWindow()
         {
             InitializeComponent();
+            inicialLineGradientBrush();
+        }
+
+        private void inicialLineGradientBrush()
+        {
+            lgb =
+    new LinearGradientBrush();
+            lgb.StartPoint = new Point(0, 0.5);
+            lgb.EndPoint = new Point(1, 0.5);
+            lgb.GradientStops.Add(
+                new GradientStop(Colors.Yellow, 0.0));
+            lgb.GradientStops.Add(
+                new GradientStop(Colors.Red, 0.25));
+            lgb.GradientStops.Add(
+                new GradientStop(Colors.Blue, 0.75));
+            lgb.GradientStops.Add(
+                new GradientStop(Colors.LimeGreen, 1.0));
         }
     }
 }

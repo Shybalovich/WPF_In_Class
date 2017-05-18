@@ -1,16 +1,28 @@
 ﻿<Window x:Class="TaskWithButton.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TaskWithButton"
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
         <StackPanel Orientation="Horizontal"  DockPanel.Dock="Top" Height="160">
-
             <StackPanel.Resources>
+                <LinearGradientBrush x:Key="Gradient1">
+                    <GradientStop Color="DarkCyan" Offset="0"></GradientStop>
+                    <GradientStop Color="Red" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+                <LinearGradientBrush x:Key="Gradient2">
+                    <GradientStop Color="Yellow" Offset="0.0"></GradientStop>
+                    <GradientStop Color="Linen" Offset="0.25"></GradientStop>
+                    <GradientStop Color="Blue" Offset="0.75"></GradientStop>
+                    <GradientStop Color="LimeGreen" Offset="1"></GradientStop>
+
+                </LinearGradientBrush>
+
                 <Style TargetType="{x:Type Rectangle}" x:Key = "RectangleStyle1">
                     <Setter Property="Margin" Value="10"></Setter>
                     <Setter Property="Width" Value="50"></Setter>
                     <Setter Property="Height" Value="50"></Setter>
-                    <Setter Property="Fill" Value="Gold"></Setter>
+                    <Setter Property="Fill" Value="{StaticResource Gradient1}"></Setter>
                     <Setter Property="RadiusX" Value="10"></Setter>
                     <Setter Property="RadiusY" Value="10"></Setter>
                     <Setter Property="Stroke" Value="Red"></Setter>
@@ -18,15 +30,12 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Width" Value="100"></Setter>
                             <Setter Property="Height" Value="100"></Setter>
-                            <Setter Property="Fill" Value="Linen"></Setter>
+                            <Setter Property="Fill" Value="{StaticResource Gradient2}"></Setter>
                             <Setter Property="RadiusX" Value="20"></Setter>
                             <Setter Property="RadiusY" Value="20"></Setter>
                         </Trigger>
                     </Style.Triggers>
-                </Style>
-                <Style TargetType="{x:Type Rectangle}">
-
-                </Style>
+                </Style>                
             </StackPanel.Resources>
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -38,12 +47,7 @@
             <Rectangle Style="{StaticResource RectangleStyle1}"></Rectangle>
             <Rectangle Style="{StaticResource RectangleStyle1}"></Rectangle>
             <Rectangle Style="{StaticResource RectangleStyle1}">
-                <Rectangle.Fill>
-                    <LinearGradientBrush>
-                        <GradientStop Color="Blue" Offset="0" />
-                        <GradientStop Color="White" Offset="1" />
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
+               
             </Rectangle>
         </StackPanel>
         <Grid></Grid>
