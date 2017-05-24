@@ -31,12 +31,19 @@ namespace DataBasePhone
             // 3. записать запись
             // 4. закрыть
             // 5. записать в другой файл позицию курсора
-            using (FileStream write = new FileStream(pathToDatabase,FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+            using (FileStream write = new FileStream(pathToDatabase, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
             {
                 write.Seek(0, SeekOrigin.End);
                 long index = write.Position;
                 string line = "" + record.ID + "," + record.LastName + "," + record.FirstName + "\r\n";
- 
+                Byte[] byteArr = Encoding.Unicode.GetBytes(line);
+                int count = byteArr.Length;
+                write.Write(byteArr, 0, count);
+                using(FileStream fileIndex = new FileStream(pathToLineIndexes, FileMode.OpenOrCreate))
+                {
+                    Byte[] indexByte = BitConverter.GetBytes(index);
+                    fileIndex.Write(indexByte, 0, indexByte.Length);
+                } 
             }
         }
 
@@ -52,5 +59,7 @@ namespace DataBasePhone
             }
 
         }
+
+        
     }
 }

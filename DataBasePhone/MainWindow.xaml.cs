@@ -20,9 +20,32 @@ namespace DataBasePhone
     /// </summary>
     public partial class MainWindow : Window
     {
+        Database data;
+        Database.Record record;
         public MainWindow()
         {
             InitializeComponent();
+            data = Database.Instance;
+            record = new Database.Record();
         }
+
+        private void Seva_Click(object sender, RoutedEventArgs e)
+        {
+            record.ID = Convert.ToInt32(ID.Text);
+            ID.Text = "";
+            record.LastName = LastName.Text;
+            LastName.Text = "";
+            record.FirstName = FirstName.Text;
+            FirstName.Text = "";
+            data.Add(record);
+        }
+
+        private void ID_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if ((e.KeyboardDevice <= 47 || e.Key >= '9') && e.KeyChar != 8)
+            //    e.Handled = true;
+        }
+
+
     }
 }
