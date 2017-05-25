@@ -40,10 +40,24 @@ namespace DataBasePhone
             data.Add(record);
         }
 
-        private void ID_KeyDown(object sender, KeyEventArgs e)
+
+        private void ID_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            //if ((e.KeyboardDevice <= 47 || e.Key >= '9') && e.KeyChar != 8)
-            //    e.Handled = true;
+            if(!Char.IsNumber(e.Text, 0))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void experiment_Click(object sender, RoutedEventArgs e)
+        {
+            //experimentFile exp = new experimentFile();
+            textBoxExp.Text = experimentFile.getLengsInfFile(data.pathToLineIndexes) + " " + experimentFile.getLengsInfFile(data.pathToDatabase);
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            data.deleteAllFile();
         }
 
 
