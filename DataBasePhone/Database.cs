@@ -17,14 +17,36 @@ namespace DataBasePhone
             public string FirstName;
         }
 
+        private string[] separator = new string[] { "\",\"\r\n", "\",\"", "\""};
 
         public readonly static Database Instance = new Database();
-        public string pathToDatabase = "../../database.txt";
-        public string pathToLineIndexes = "../../LineIndexes.txt";
+        public string pathToDatabase = @"../../database.txt";            // файл с данными
+        public string pathToLineIndexes = @"../../LineIndexes.txt";      // файл с номерами позиций начала строк
+        public string pathToLineIndexesPosition = @"../../LineIndexesPosition.txt";      // файл с номерами позиций начала строк
+
         private Database()
         {
-
         }
+
+        //private int getListNumberInOrder()
+        //{
+        //    int n = 0;
+        //    using(StreamReader file = new StreamReader(pathToDatabase))
+        //    {
+        //        string line = "";
+        //        while (file.Peek() != -1)
+        //        {
+        //            line = file.ReadLine();
+        //        }
+        //        if (line != "")
+        //        {
+        //            string[] arrString = line.Split(separator, StringSplitOptions.None);
+        //            n = Convert.ToInt32(arrString[0]);
+        //        }
+        //    }
+        //    return n;
+        //}
+
         public void Add(Record record)
         {
             // 1. открыть файл, перемотать в конец
@@ -32,27 +54,28 @@ namespace DataBasePhone
             // 3. записать запись
             // 4. закрыть
             // 5. записать в другой файл позицию курсора
-            using (FileStream write = new FileStream(pathToDatabase, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
-            {               
-                write.Seek(0, SeekOrigin.End);
-                long index = write.Position;
-                string line = "" + record.ID + ",\"" + record.LastName + "\",\"" + record.FirstName + "\"\r\n";
-                Byte[] byteArr = Encoding.Unicode.GetBytes(line);
-                int count = byteArr.Length;
-                write.Write(byteArr, 0, count);
-                using(FileStream fileIndex = new FileStream(pathToLineIndexes, FileMode.OpenOrCreate))
+            using(StreamWriter writeFile = new StreamWriter(pathToDatabase, true, Encoding.Unicode))
+            {
+                writeFile.BaseStream.Seek(0, SeekOrigin.End);
+                int numberInOrder = -1;
+                long position = writeFile.BaseStream.Position;
+                using(BinaryWriter positionFile = new BinaryWriter(File.OpenWrite(pathToLineIndexes)))
                 {
-                    Byte[] indexByte = BitConverter.GetBytes(index);
-                    fileIndex.Seek(0, SeekOrigin.End);
-                    fileIndex.Write(indexByte, 0, indexByte.Length);
+                    positionFile.Seek(0, SeekOrigin.End);
+                    positionFile.Write(position);
                 }
-                List<long> listIndex = getListIndex(pathToLineIndexes);
-                string s = "";
-                foreach (var it in listIndex)
+                using (FileStream indexFile = new FileStream(pathToLineIndexes, FileMode.OpenOrCreate))
                 {
-                    s += it + " ";
+                   byte[] index = new byte[4];
+                   if(indexFile.Length != 0)
+                   {
+                       indexFile.Seek(-4, SeekOrigin.End);
+                       indexFile.Read(index, 0, 4);
+                       numberInOrder = BitConverter.ToInt32(index, 0);
+                   }
                 }
-                MessageBox.Show(s);
+                ++numberInOrder;
+                string line = "\"" + numberInOrder + "\",\"" + record.ID + "\",\"" + record.LastName + "\",\"" + record.FirstName + "\"\r\n";
             }
         }
 
@@ -64,44 +87,51 @@ namespace DataBasePhone
                 // найти запись номер LineNumber, прочитали в offset
                 // открыли основной файл, перемотали на offest
                 // прочитали запись 
-                return new Record();
-            }
-
-        }
-
-        // полечение списка индексов
-        private List<long> getListIndex(String fileName)
-        {
-            List<long> listIndex = new List<long>();
-            BinaryReader file = new BinaryReader(File.Open(fileName, FileMode.OpenOrCreate));
-            try
-            {
-                while(true)
+                Record newRecord = new Record();
+                int maxIndex = -1;
+                using (BinaryReader indexFile = new BinaryReader(File.OpenRead(pathToLineIndexes)))
                 {
-                    listIndex.Add(file.ReadInt64());
+                    if(indexFile.BaseStream.Length > 0)
+                    {
+                        indexFile.BaseStream.Seek(-4, SeekOrigin.End);
+                        maxIndex = indexFile.ReadInt32();
+                    }
                 }
+                if (LineNumber >= 0 && LineNumber <= maxIndex)
+                {
+                    long position = 0;
+                    using (BinaryReader posiFile = new BinaryReader(File.OpenRead(pathToLineIndexesPosition)))
+                    {
+                        if (posiFile.BaseStream.Length > 0)
+                        {
+                            posiFile.BaseStream.Seek(8 * LineNumber, SeekOrigin.Begin);
+                            position = posiFile.ReadInt64();
+                        }
+                    }
+                    using(StreamReader writeFile = new StreamReader(pathToDatabase, Encoding.Unicode))
+                    {
+                        writeFile.BaseStream.Seek(position, SeekOrigin.Begin);
+                        string line = writeFile.ReadLine();
+                        string[] arrString = line.Split(separator, StringSplitOptions.None);
+                        newRecord.ID = Convert.ToInt32(arrString[1]);
+                        newRecord.LastName = arrString[2];
+                        newRecord.FirstName = arrString[3];
+                    }
+                }
+                return newRecord;
             }
-            catch (EndOfStreamException ex)
-            {
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                file.Dispose();
-            }
-            return listIndex;
         }
-        
+
         public void deleteAllFile()
         {
             File.Delete(pathToDatabase);
             File.Delete(pathToLineIndexes);
+            File.Delete(pathToLineIndexesPosition);
+
             File.Create(pathToDatabase).Dispose();
             File.Create(pathToLineIndexes).Dispose();
+            File.Create(pathToLineIndexesPosition).Dispose();
         }
         
     }

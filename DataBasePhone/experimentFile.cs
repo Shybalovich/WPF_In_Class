@@ -34,6 +34,7 @@ namespace DataBasePhone
 
             string s = "";
             long lengthFile0, lengthFile1, start, end;
+
             //using(FileStream file = new FileStream(pathFile, FileMode.Create))
             //{
             //    lengthFile0 = file.Length;

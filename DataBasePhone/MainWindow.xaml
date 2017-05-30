@@ -34,7 +34,7 @@
         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Text="Поле для записи" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontStyle="Italic" FontWeight="Black" Foreground="#FF63071C"/>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <Label Content="ID"/>
-            <TextBox x:Name="ID" PreviewTextInput="ID_PreviewTextInput"/>
+            <TextBox x:Name="ID" PreviewKeyDown="ID_PreviewKeyDown"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <Label Content="LastName"/>
@@ -54,7 +54,7 @@
 
         <StackPanel Grid.Column="0" Grid.Row="3">
             <Label Content="№"/>
-            <TextBox x:Name="Number" PreviewTextInput="ID_PreviewTextInput"/>
+            <TextBox x:Name="Number"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="3">
             <Label Content="ID"/>
