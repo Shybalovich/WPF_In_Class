@@ -46,8 +46,7 @@
             <Rectangle Style="{StaticResource RectangleStyle1}"></Rectangle>
             <Rectangle Style="{StaticResource RectangleStyle1}"></Rectangle>
             <Rectangle Style="{StaticResource RectangleStyle1}"></Rectangle>
-            <Rectangle Style="{StaticResource RectangleStyle1}">
-               
+            <Rectangle Style="{StaticResource RectangleStyle1}">               
             </Rectangle>
         </StackPanel>
         <Grid></Grid>

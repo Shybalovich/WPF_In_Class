@@ -52,7 +52,6 @@ namespace DataBasePhone
                 {
                     s += it + " ";
                 }
-                MessageBox.Show(s);
             }
         }
 

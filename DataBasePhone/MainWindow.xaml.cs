@@ -31,7 +31,7 @@ namespace DataBasePhone
 
         private void Seva_Click(object sender, RoutedEventArgs e)
         {
-            record.ID = Convert.ToInt32(ID.Text);
+            record.ID = ID.Text != "" ? Convert.ToInt32(ID.Text) : 0;
             ID.Text = "";
             record.LastName = LastName.Text;
             LastName.Text = "";
@@ -51,7 +51,9 @@ namespace DataBasePhone
 
         private void experiment_Click(object sender, RoutedEventArgs e)
         {
-            //experimentFile exp = new experimentFile();
+            //string s = experimentFile.getLengsInfFile(data.pathToLineIndexes);
+            //s += " ";
+            //s += experimentFile.getLengsInfFile(data.pathToDatabase);
             textBoxExp.Text = experimentFile.getLengsInfFile(data.pathToLineIndexes) + " " + experimentFile.getLengsInfFile(data.pathToDatabase);
         }
 
