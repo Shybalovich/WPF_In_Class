@@ -1,0 +1,22 @@
+﻿<Window x:Class="DataGrid.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <Button DockPanel.Dock="Bottom" Click="Button_Click" Content="Check"/>
+        <StackPanel DockPanel.Dock="Top">
+            <RadioButton x:Name="zzzz" Content="1"/>
+            <RadioButton x:Name="xxxxx" Content="2" Click="ooooo"/>
+            <RadioButton Content="3"/>
+        </StackPanel>
+        <DataGrid  x:Name="list" AutoGenerateColumns="False">
+            <DataGrid.Columns >
+                <DataGridTextColumn Binding="{Binding Id}"/>
+                <DataGridTextColumn Binding="{Binding Firstname}"/>
+                <DataGridTextColumn Binding="{Binding Lastname}"/>
+                <DataGridCheckBoxColumn Binding="{Binding IsGood}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </DockPanel>
+</Window>
