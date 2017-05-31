@@ -18,8 +18,9 @@
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="20, 0, 20, 0">
             <Button x:Name="button_Save" Content="Save" Click="button_Save_Click"></Button>
-            <Button x:Name="button_Sort" Content="Sort"></Button>
-            <Button x:Name="button_Show" Content="Show"></Button>
+            <Button x:Name="button_SortID" Content="SortID" Click="button_SortID_Click"></Button>
+            <Button x:Name="button_SortName" Content="SortName" Click="button_SortName_Click"></Button>
+            <Button x:Name="button_Show" Content="Show" Click="button_Show_Click"></Button>
             <Button x:Name="button_Clear" Content="Clear" Click="button_Clear_Click"></Button>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Margin="20,0,20,0">
@@ -28,7 +29,7 @@
             <TextBlock>Substring</TextBlock>
             <TextBox x:Name="textBoxSubstring"></TextBox>
         </StackPanel>
-        <GroupBox Header="Позиция начала в файлу" Grid.Column="0" Grid.Row="1">
+        <GroupBox Header="Позиция начала в файлe" Grid.Column="0" Grid.Row="1">
             <ListBox x:Name="listPosition"></ListBox>
         </GroupBox>
         <GroupBox Header="ID" Grid.Column="1" Grid.Row="1">
