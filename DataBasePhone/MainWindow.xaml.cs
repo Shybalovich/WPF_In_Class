@@ -40,15 +40,6 @@ namespace DataBasePhone
             data.Add(record);
         }
 
-
-        private void ID_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if(!Char.IsNumber(e.Text, 0))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void experiment_Click(object sender, RoutedEventArgs e)
         {
             //string s = experimentFile.getLengsInfFile(data.pathToLineIndexes);
@@ -60,6 +51,12 @@ namespace DataBasePhone
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             data.deleteAllFile();
+        }
+
+        private void ID_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key >= Key.A && e.Key <= Key.Z || e.Key == Key.Space)
+                e.Handled = true;
         }
 
 
