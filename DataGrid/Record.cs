@@ -35,6 +35,7 @@ namespace DataGrid
                 OnPropertyChanged("Firstname");
             }
         }
+
         private string lastname;
 
         public string Lastname
@@ -60,8 +61,6 @@ namespace DataGrid
                 OnPropertyChanged();
             }
         }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

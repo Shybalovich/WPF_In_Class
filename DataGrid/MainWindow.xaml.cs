@@ -26,6 +26,7 @@ namespace DataGrid
         {
             public ObservableCollection<Record> records = new ObservableCollection<Record>();
         }
+
         Model m = new Model();
 
         public MainWindow()
@@ -36,7 +37,6 @@ namespace DataGrid
             m.records.Add(new Record("fdf", "435"));
             m.records.Add(new Record("aaa", "aba"));
             list.ItemsSource = m.records;
-
             Type mytype = typeof(Record);
             //mytype.GetProperties
         }
@@ -74,10 +74,12 @@ namespace DataGrid
     }
 
     #region .
-    public static  class Helper{
-        public static int BS<T>(this List<T> obj) {
+    public static class Helper
+    {
+        public static int BS<T>(this List<T> obj)
+        {
             return 1;
         }
     }
-#endregion
+    #endregion
 }

@@ -9,9 +9,8 @@
             <RadioButton x:Name="xxxxx" Content="2" Click="ooooo"/>
             <RadioButton Content="3"/>
         </StackPanel>
-        <DataGrid  x:Name="list" AutoGenerateColumns="False">
+        <DataGrid x:Name="list" AutoGenerateColumns="False">
             <DataGrid.Columns >
-                <DataGridTextColumn Binding="{Binding Id}"/>
                 <DataGridTextColumn Binding="{Binding Firstname}"/>
                 <DataGridTextColumn Binding="{Binding Lastname}"/>
                 <DataGridCheckBoxColumn Binding="{Binding IsGood}"/>
